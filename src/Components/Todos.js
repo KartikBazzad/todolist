@@ -53,9 +53,7 @@ function Todos({ todo }) {
         <p>{todo.content}</p>
       </div>
       <div className='flex justify-around w-24'>
-        <div
-          onClick={() => setIsOpen(() => !modalIsOpen)}
-          className='btn btn-sm btn-ghost btn-circle'>
+        <div onClick={openModal} className='btn btn-sm btn-ghost btn-circle'>
           <svg
             width='18'
             height='18'

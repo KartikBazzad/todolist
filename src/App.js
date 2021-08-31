@@ -4,15 +4,23 @@ import Todos from './Components/Todos';
 import { TodoContext } from './context/TodoContext';
 
 function App() {
-  const [todos] = useContext(TodoContext);
+  const [todos, setTodos] = useContext(TodoContext);
+  useEffect(() => {
+    getLocalTodos();
+  }, []);
   useEffect(() => {
     save();
   }, [todos]);
   const save = () => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  };
+  const getLocalTodos = () => {
     if (localStorage.getItem('todos' === null)) {
       localStorage.setItem('todos', JSON.stringify([]));
     } else {
-      localStorage.setItem('todos', JSON.stringify(todos));
+      const savedTodo = JSON.parse(localStorage.getItem('todos'));
+      console.log(savedTodo);
+      setTodos(savedTodo);
     }
   };
   return (
