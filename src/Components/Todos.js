@@ -79,6 +79,7 @@ function Todos({ todo }) {
                 New value:
               </label>
               <input
+                autoFocus
                 className='input w-96 input-sm'
                 type='text'
                 value={updateTodo.content}
